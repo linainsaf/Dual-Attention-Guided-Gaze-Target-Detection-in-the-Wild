@@ -145,12 +145,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument('-i', '--input_path', 
-        default='input',
+        default="depth_estimation/input/test_image.png",
         help='folder with input images'
     )
 
     parser.add_argument('-o', '--output_path', 
-        default='output',
+        default="depth_estimation/output",
         help='folder for output images'
     )
 
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     )
 
     parser.add_argument('-t', '--model_type', 
-        default='dpt_large',
+        default='midas_v21_small',
         help='model type: dpt_large, dpt_hybrid, midas_v21_large or midas_v21_small'
     )
 
@@ -171,10 +171,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     default_models = {
-        "midas_v21_small": "weights/midas_v21_small-70d6b9c8.pt",
-        "midas_v21": "weights/midas_v21-f6b98070.pt",
-        "dpt_large": "weights/dpt_large-midas-2f21e586.pt",
-        "dpt_hybrid": "weights/dpt_hybrid-midas-501f0c75.pt",
+        "midas_v21_small": "depth_estimation/weights/midas_v21_small-70d6b9c8.pt",
+        "midas_v21": "depth_estimation/weights/midas_v21-f6b98070.pt",
+        "dpt_large": "depth_estimation/weights/dpt_large-midas-2f21e586.pt",
+        "dpt_hybrid": "depth_estimation/weights/dpt_hybrid-midas-501f0c75.pt",
     }
 
     if args.model_weights is None:
