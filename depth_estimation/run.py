@@ -145,12 +145,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument('-i', '--input_path', 
-        default="depth_estimation/input/test_image.png",
+        default="input",
         help='folder with input images'
     )
 
     parser.add_argument('-o', '--output_path', 
-        default="depth_estimation/output",
+        default="output",
         help='folder for output images'
     )
 
