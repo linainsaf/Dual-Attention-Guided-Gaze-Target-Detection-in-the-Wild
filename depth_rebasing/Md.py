@@ -23,11 +23,11 @@ def Md (Id,N,gz):
     Mback = np.maximum(-Fd, np.zeros_like(Fd))
     
     if gz >-1 and gz<sigma:
-        Md = Mfront
+        return Mfront
     elif gz >-sigma and gz<sigma:
-        Md = Mmid
+        return Mmid
     elif gz >sigma and gz<1:
-        Md = Mback
+        return Mback
     
-    return Md
+    
     
