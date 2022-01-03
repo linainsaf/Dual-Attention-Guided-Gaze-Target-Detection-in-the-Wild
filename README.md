@@ -29,6 +29,6 @@ A common issue encountered while trying to localize the gaze direction of a huma
 ## Resulted blocks
 
 - Preprocess Image for input block, which receives as input : The original image. And as output, gives us : Eye patches, the cropped head images and the Depth Estimation map
-- 3D Gaze Estimation module, which receives as input : Eye patches and cropped head images. And as output, gives us : The 3D gaze estimation [gx, gy, gz] and the head position.
+- 3D Gaze Estimation module, which receives as input : Eye patches and cropped head images. And as output, gives us : The 3D gaze estimation [gx, gy, gz].
 - Dual Attention Module,  which receives as input  : Depth Estimation maps of an image, the head pose [yaw, pitch] and the 3D Gaze Estimation [gx, gy, gz] extracted from the last block . And as output, gives us : The Depth Attention Map and the FOV attention Map. 
 - Gaze Target Detection Module, which receives as input  : The Depth Attention Map and the FOV attention Map.  And as output, gives us : the Heat map regression.
