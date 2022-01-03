@@ -15,6 +15,7 @@ A common issue encountered while trying to localize the gaze direction of a huma
 - Gaze360 and GazeFollow datasets : images and anotations.
 - Resnet models: provided by pytorch. 
 - Face Alignement model from Bulat et al.
+- The backbone architecture of the 3rd part. 
     
 
     
@@ -24,7 +25,7 @@ A common issue encountered while trying to localize the gaze direction of a huma
 - Head crops images for GazeFollow dataset
 - Eyes retrieval using different checks. 
 - Headpose model training using transfer learning.
-- 3D gaze estimation MLP training 
+- 3D gaze estimation MLP training.
 - Combine depth estimation network with 3D gaze estimation to built depth rebasing and Fild of vision FOV. 
 - Heat-map Regression head model : regression of the target's position in the frame.
 - Binary classification Head to classify whether the target is inside or outside the fram.
@@ -46,3 +47,6 @@ A common issue encountered while trying to localize the gaze direction of a huma
 - 3D Gaze Estimation module, which receives as input : Eye patches and cropped head images. And as output, gives us : The 3D gaze estimation [gx, gy, gz].
 - Dual Attention Module,  which receives as input  : Depth Estimation maps of an image, the head pose [yaw, pitch] and the 3D Gaze Estimation [gx, gy, gz] extracted from the last block . And as output, gives us : The Depth Attention Map and the FOV attention Map. 
 - Gaze Target Detection Module, which receives as input  : The Depth Attention Map and the FOV attention Map.  And as output, gives us : the Heat map regression.
+- Models and intermediate datasets links are in provided in the read_me file of the 3D gaze estimation training folder.
+
+
