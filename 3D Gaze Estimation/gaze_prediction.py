@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import numpy as np
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
 from head_pose_estimation import head_pose_extraction
@@ -83,7 +84,7 @@ def mlp_gaze_estimation(prediction_hp, features_left, features_right, left_eye_i
   #Model import
   tensor_size= len(features_left[0])*2+len(prediction_hp[0])
   model_gaze = createModel_MLP(256,tensor_size)
-  model_gaze.load_state_dict(torch.load("drive/MyDrive/MLA/MLP.pth"))#,map_location=torch.device('cpu')))
+  model_gaze.load_state_dict(torch.load("models/MLP.pth"))#,map_location=torch.device('cpu')))
   model_gaze.eval()
 
   gaze_prediction =torch.zeros((1,3), dtype=torch.int32, device = 'cuda')

@@ -75,7 +75,7 @@ def head_pose_extraction(head_imgs):
     # head pose prediction
     model_hp = createModel_resnet34(512, 128)
     model_hp.load_state_dict(
-        torch.load("drive/MyDrive/MLA/head_pose_extractor.pth"))  # ,map_location=torch.device('cpu')))
+        torch.load("models/head_pose_extractor.pth"))  # ,map_location=torch.device('cpu')))
     model_hp.eval()
 
     prediction_hp = torch.zeros((1, 2), dtype=torch.int32, device='cuda')
