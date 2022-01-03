@@ -1,7 +1,7 @@
-# Dual-Attention-Guided-Gaze-Target-Detection-in-the-Wild
+# Dual-Attention-Guided-Gaze-Target-Detection-in-the-Wild: artcile reproduction
 
-
-A common issue encountered while trying to localize the gaze direction of a human being with 2Dimages is the lack of understanding of the depth by the network.  However, a very promising solution hasbeen introduced to solve this problem in the article "Dual Attention Guided Gaze Target Detection in theWild" published recently (2021) in the reputed journal of IEEE/CVF Conference on Computer Visionand Pattern Recognition (CVPR). The aim of this project is to reconstruct the approach proposed in that article.
+## Introduction
+A common issue encountered while trying to localize the gaze direction of a human being with 2Dimages is the lack of understanding of the depth by the network.  However, a very promising solution hasbeen introduced to solve this problem in the article "Dual Attention Guided Gaze Target Detection in theWild" published recently (2021) in the reputed journal of IEEE/CVF Conference on Computer Visionand Pattern Recognition (CVPR). The aim of this project is to reconstruct the approach proposed in that article. This github repository includes the reproduction codes, dataset links and results of the re-implementation.
 
 
 ![general_model](Schema_model_MLA.png)
@@ -11,14 +11,28 @@ A common issue encountered while trying to localize the gaze direction of a huma
 
 ## What was available 
 
-- Depth Estimation Network pretrained model was given [link], it receives as input the original image, and gives us as output the depth estimation map of the same image. 
+- Depth Estimation Network pretrained model was given [link], it receives as input the original image, and gives us as output the depth estimation map of the same image.
+- Gaze360 and GazeFollow datasets : images and anotations.
+- Resnet models: provided by pytorch. 
+- Face Alignement model from Bulat et al.
     
 
     
 
 ## What needed to be constructed
 
+- Head crops images for GazeFollow dataset
+- Eyes retrieval using different checks. 
+- Headpose model training using transfer learning.
+- 3D gaze estimation MLP training 
+- Combine depth estimation network with 3D gaze estimation to built depth rebasing and Fild of vision FOV. 
+- Heat-map Regression head model : regression of the target's position in the frame.
+- Binary classification Head to classify whether the target is inside or outside the fram.
+
+
+## Steps 
 - First, we trained the 3D Gaze Estimation Module on Gaze360 Dataset. Then we made the predictions on the Gazefollow Dataset.
+
 - After that, we built the Module Dual Attention Module which has two main functions : Depth Rebasing and FOV Generator. We run the model on Gazefollow to obtain the Depth Attention Map and the FOV attention Map. 
 - Finally, we train the Heatmap Regression Head on Gazefollow as well.
 - The Binary Head Classification module couldn’t be trained because we lacked the appropriate dataset. 
